@@ -17,6 +17,8 @@ gem "json"
 
 gem "active_model_serializers"
 
+gem 'exponent-server-sdk'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
