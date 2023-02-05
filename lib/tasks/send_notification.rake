@@ -16,7 +16,7 @@ task :send_notification => [ :environment ] do
     title: "QOTD!",
     body: highlight.text,
     badge: 1,
-    data: { highlight_id: highlight.id }
+    data: highlight
   }]
 
   handler = client.send_messages(messages)

@@ -1,3 +1,3 @@
-every 1.day do
+every 1.hour do
   rake 'send_notification'
 end
