@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
-    render json: { data: Books.all }, status: :ok
+    # TODO: filter books
+    render json: Books.all, status: :ok
   end
 
   def show

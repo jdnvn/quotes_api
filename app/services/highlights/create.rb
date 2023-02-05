@@ -6,7 +6,7 @@ module Highlights
 
     def call
       ActiveRecord::Base.transaction do
-        create_highlight
+        create_highlight!
       end
 
       success(@highlight)
@@ -17,16 +17,16 @@ module Highlights
 
     private
 
-    def create_highlight
+    def create_highlight!
       @highlight =
-        Highlight.create(
+        Highlight.create!(
           text: @attributes['text'],
           page: @attributes['page'],
           location: @attributes['location'],
           book_id: @attributes['book_id'],
           highlighted_at: formatted_highlighted_at
         )
-      raise 'Could not create highlight' if !@highlight
+      raise 'Could not create highlight' unless @highlight
     end
 
     def formatted_highlighted_at
