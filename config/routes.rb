@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :highlights
+  resources :highlights, except: :new
+
+  post '/highlights/ocr', to: 'highlights#ocr'
+
   resources :books
 end

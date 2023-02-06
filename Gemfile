@@ -19,6 +19,10 @@ gem "active_model_serializers"
 
 gem 'exponent-server-sdk'
 
+gem 'google-api-client'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
