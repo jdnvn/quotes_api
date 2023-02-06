@@ -10,7 +10,7 @@ module Highlights
 
       body = JSON.parse(response.body)
       text = body["responses"][0]["fullTextAnnotation"]["text"]
-      puts text
+
       success(text)
     rescue StandardError => e
       failure("Could not read image")
