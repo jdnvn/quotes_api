@@ -29,4 +29,14 @@ class HighlightsController < ApplicationController
 
     render status: :no_content
   end
+
+  def ocr
+    result = Highlights::Ocr.new(bytes: params['bytes']).call
+
+    if result.success?
+      render json: { text: result.value }, status: :ok
+    else
+      render json: { error: result.error }, status: :unprocessable_entity
+    end
+  end
 end
