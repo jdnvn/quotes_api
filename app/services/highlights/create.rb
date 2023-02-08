@@ -1,5 +1,7 @@
 module Highlights
   class Create < Base
+    attr_reader :attributes
+
     def initialize(attributes:)
       @attributes = attributes
     end
@@ -12,7 +14,7 @@ module Highlights
       success(@highlight)
     rescue StandardError => e
       Rails.logger.error(e)
-      failure('highlight could not be created')
+      failure('could not create that highlight')
     end
 
     private
@@ -20,17 +22,17 @@ module Highlights
     def create_highlight!
       @highlight =
         Highlight.create!(
-          text: @attributes['text'],
-          page: @attributes['page'],
-          location: @attributes['location'],
-          book_id: @attributes['book_id'],
+          text: attributes['text'],
+          page: attributes['page'],
+          location: attributes['location'],
+          book_id: attributes['book_id'],
           highlighted_at: formatted_highlighted_at
         )
-      raise 'Could not create highlight' unless @highlight
+      raise StandardError unless @highlight
     end
 
     def formatted_highlighted_at
-      @attributes['highlighted_at']
+      attributes['highlighted_at']
     end
   end
 end
