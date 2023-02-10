@@ -24,3 +24,22 @@ class BooksController < ApplicationController
     end
   end
 end
+
+def update
+  book = Book.find_by(id: params.dig(:params, :id))
+  return render json: "No book with that id", status: :not_found unless book
+
+  result = Books::Update.new(book: book, attributes: params["params"]).call
+
+  if result.success?
+    render json: result.value, status: :ok
+  else
+    render json: result.error, status: :unprocessable_entity
+  end
+end
+
+def destroy
+  Book.find_by(id: params[:id]).destroy!
+
+  render status: :no_content
+end
