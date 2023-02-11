@@ -17,7 +17,7 @@ module Books
 
     private
 
-    def update_highlight
+    def update_book
       book.update(
         title: attributes[:title],
         author: attributes[:author]
