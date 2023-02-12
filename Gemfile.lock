@@ -246,7 +246,7 @@ DEPENDENCIES
   google-api-client
   json
   pg
-  puma (~> 5.0)
+  puma (< 7)
   rails (~> 7.0.3)
   tzinfo-data
 
