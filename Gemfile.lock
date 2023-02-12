@@ -245,7 +245,7 @@ DEPENDENCIES
   exponent-server-sdk
   google-api-client
   json
-  pg (~> 0.11)
+  pg (= 0.21.0)
   puma (< 7)
   rails (~> 7.0.3)
   tzinfo-data
