@@ -23,6 +23,8 @@ gem 'google-api-client'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'whenever'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
