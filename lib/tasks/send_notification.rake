@@ -1,14 +1,14 @@
 task :send_notification => [ :environment ] do
   client = Exponent::Push::Client.new
 
-  highlight = Highlight.where.not(sent: true).order(Arel.sql('RANDOM()')).first
+  highlight = Highlight.where(sent: false).sample
 
   unless highlight
     Highlight.update_all(sent: false)
-    highlight = Highlight.order(Arel.sql('RANDOM()')).first
+    highlight = Highlight.all.sample
   end
 
-  # highlight.update!(sent: true)
+  highlight.update(sent: true)
 
   messages = [{
     to: "ExponentPushToken[5HXOyQDCUnIudGLyfhBFAN]",
