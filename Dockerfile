@@ -31,3 +31,4 @@ ADD Gemfile* $APP_HOME/
 RUN bundle install
 # Copy over our application code
 ADD . $APP_HOME
+RUN whenever --update-crontab
