@@ -14,6 +14,7 @@ RUN apt-get update -qq \
          # Needed for postgres gem
     libpq-dev \
     # The following are used to trim down the size of the image by removing unneeded data
+    cron \
   && apt-get clean autoclean \
   && apt-get autoremove -y \
   && rm -rf \
