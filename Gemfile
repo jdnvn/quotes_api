@@ -25,6 +25,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'whenever'
 
+gem 'rake', '13.0.6'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
