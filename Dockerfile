@@ -30,5 +30,3 @@ ADD Gemfile* $APP_HOME/
 RUN bundle install
 # Copy over our application code
 ADD . $APP_HOME
-# Run our app
-CMD RAILS_ENV=${RAILS_ENV} bundle exec rails s -p 8080
