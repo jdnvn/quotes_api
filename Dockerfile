@@ -29,8 +29,8 @@ WORKDIR $APP_HOME
 # Add our Gemfile and install gems
 ADD Gemfile* $APP_HOME/
 RUN bundle install
+RUN bundle config set --local path 'vendor/cache'
 # Copy over our application code
 ADD . $APP_HOME
 
-RUN service cron start
 RUN whenever --update-crontab
